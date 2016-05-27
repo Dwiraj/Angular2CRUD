@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>New User Form</h1>
+    <form (ngSubmit)="onSubmit(newUserForm)" #newUserForm="ngForm">
+        <input type="hidden" class="form-control"
+               [(ngModel)]="model.id"  #id="ngForm" ngControl="id">
+        <input type="hidden" class="form-control"
+               [(ngModel)]="model.regDate" ngControl="regDate" value="Null" >
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" required
+                   [(ngModel)]="model.name" ngControl="name" #name="ngForm">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"  class="form-control" required
+                   [(ngModel)]="model.email" ngControl="email" #email="ngForm">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text"  class="form-control" required
+                   [(ngModel)]="model.city" ngControl="city" #city="ngForm">
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number"  class="form-control" required
+                   [(ngModel)]="model.age" ngControl="age" #age="ngForm">
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!newUserForm.form.valid">Submit</button>
+        <button type="reset" class="btn btn-default" >Reset</button>
+
+    </form>
+</div>
