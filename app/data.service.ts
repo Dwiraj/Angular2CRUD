@@ -1,18 +1,17 @@
+import {AppComponent} from './app.component';
 import {Http} from "@angular/http";
 
 export class DataService {
     public data;
-
     constructor(public http:Http) {
-        http.get("app/data.json")
-            .subscribe((data)=> {
-                setTimeout(()=> {
+        if(AppComponent.myData == undefined) {
+            http.get("app/data.json")
+                .subscribe((data)=> {
                     this.data = data.json();
-                }, 1000);
-            });
-    }
-
-    getUsers() : string[] {
-        return this.data;
+                    AppComponent.myData = this.data;
+                });
+        } else {
+            this.data = AppComponent.myData;
+        }
     }
 }

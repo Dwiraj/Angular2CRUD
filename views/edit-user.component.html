@@ -1,8 +1,8 @@
 <div class="container">
-    <h1>New User Form</h1>
-    <form (ngSubmit)="addSubmit(newUserForm)" #newUserForm="ngForm">
+    <h1>Edit User Form</h1>
+    <form (ngSubmit)="editSubmit(editUserForm)" #editUserForm="ngForm">
         <input type="hidden" class="form-control"
-               [(ngModel)]="model.id"  #id="ngForm" ngControl="id" >
+               [(ngModel)]="model.id"  #id="ngForm" ngControl="id">
         <input type="hidden" class="form-control"
                [(ngModel)]="model.regDate" ngControl="regDate" value="Null" >
         <div class="form-group">
@@ -29,8 +29,8 @@
                    [(ngModel)]="model.age" ngControl="age" #age="ngForm">
         </div>
 
-        <button type="submit" class="btn btn-primary" [disabled]="!newUserForm.form.valid">Submit</button>
-        <button type="reset" class="btn btn-default" >Reset</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!editUserForm.form.valid">Submit</button>
+        <button type="reset" class="btn btn-default" (click)="resetForm()" >Reset</button>
 
     </form>
 </div>

@@ -3,24 +3,21 @@ import {DatePipe} from "@angular/common";
 import {DataTableDirectives} from 'angular2-datatable/datatable';
 import {Http} from "@angular/http";
 import * as _ from 'lodash';
+import { Router, ROUTER_DIRECTIVES, Routes } from '@angular/router';
+
+import {DataService} from "./data.service";
 
 @Component({
     selector: 'user-table',
     templateUrl: './views/user-datatable.component.html',
-    directives: [DataTableDirectives],
+    directives: [DataTableDirectives, ROUTER_DIRECTIVES],
     pipes: [DatePipe]
 })
 
-export class UserDatatableComponent {
-    public data;
+export class UserDatatableComponent extends DataService {
 
-    constructor(public http:Http) {
-        http.get("app/data.json")
-            .subscribe((data)=> {
-                setTimeout(()=> {
-                    this.data = data.json();
-                }, 1000);
-            });
+    constructor(public http:Http, private router: Router) {
+        super(http);
     }
 
     private sortByWordLength = (a:any) => {
@@ -30,11 +27,18 @@ export class UserDatatableComponent {
     public removeItem(item: any) {
         if(confirm("Are you sure to delete this user ?")) {
             this.data = _.filter(this.data, (elem)=>elem!=item);
-            console.log("Remove: ", item.email);
         }
     }
 
     public editItem(item: any) {
-        alert("This is under development");
+        if(item != -1) {
+            console.log(item);
+            console.log(item+1);
+            this.router.navigate(['/edituser', item]);
+        } else {
+            alert('Sorry, something went wrong');
+            this.router.navigate(['/']);
+        }
+
     }
 }

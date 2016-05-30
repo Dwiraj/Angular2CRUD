@@ -3,8 +3,8 @@
 
         <div class="page-header">
             <h1>
-                <span>Angular2 DataTable component</span><br/>
-                <!--<small>by mariuszfoltak</small>-->
+                <span>Angular2 CRUD with DataTable </span><br/>
+                <small>Dwiraj Chauhan</small>
             </h1>
         </div>
 
@@ -36,7 +36,7 @@
                     <td class="text-right">{{item.age}}</td>
                     <td>{{item.city | uppercase}}</td>
                     <td>
-                        <button class="btn btn-primary" title="edit" (click)="editItem(item)">
+                        <button class="btn btn-primary" title="edit" (click)="editItem(data.indexOf(item))">
                             <span class="glyphicon glyphicon-edit"></span>
                         </button>
                         <button class="btn btn-danger" title="remove" (click)="removeItem(item)">
