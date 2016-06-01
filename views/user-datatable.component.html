@@ -9,18 +9,21 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">User information</div>
+            <!--<div class="panel-heading">User information</div>-->
 
             <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
                 <thead>
                 <tr>
+                    <th class="text-right" style="width: 5%">
+                        <mfDefaultSorter by="id">ID</mfDefaultSorter>
+                    </th>
                     <th style="width: 20%">
                         <mfDefaultSorter by="name">Name</mfDefaultSorter>
                     </th>
                     <th style="width: 40%">
                         <mfDefaultSorter by="email">Email</mfDefaultSorter>
                     </th>
-                    <th style="width: 10%">
+                    <th class="text-right" style="width: 5%">
                         <mfDefaultSorter by="age">Age</mfDefaultSorter>
                     </th>
                     <th style="width: 20%">
@@ -31,6 +34,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor=" let item of mf.data">
+                    <td class="text-right">{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.email}}</td>
                     <td class="text-right">{{item.age}}</td>

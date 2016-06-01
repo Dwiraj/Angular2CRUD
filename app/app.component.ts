@@ -23,11 +23,12 @@ import {EditUserComponent} from "./edit-user.component";
 export class AppComponent implements OnInit {
     public data;
     public static myData;
+
     constructor(private router: Router) {
 
     }
 
     ngOnInit() {
-        //this.router.navigate(['/']);
+        //this.router.navigate(['/home']);
     }
 }

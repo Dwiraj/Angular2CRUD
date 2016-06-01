@@ -15,7 +15,7 @@ import {DataService} from "./data.service";
 })
 
 export class UserDatatableComponent extends DataService {
-
+    private data = JSON.parse(localStorage.getItem('userData'));
     constructor(public http:Http, private router: Router) {
         super(http);
     }
@@ -32,8 +32,6 @@ export class UserDatatableComponent extends DataService {
 
     public editItem(item: any) {
         if(item != -1) {
-            console.log(item);
-            console.log(item+1);
             this.router.navigate(['/edituser', item]);
         } else {
             alert('Sorry, something went wrong');
