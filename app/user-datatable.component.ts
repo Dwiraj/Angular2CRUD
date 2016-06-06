@@ -15,7 +15,7 @@ import {DataService} from "./data.service";
 })
 
 export class UserDatatableComponent extends DataService {
-    private data = JSON.parse(localStorage.getItem('userData'));
+    public data = JSON.parse(localStorage.getItem('userData'));
     constructor(public http:Http, private router: Router) {
         super(http);
     }
