@@ -39,4 +39,20 @@ export class UserDatatableComponent extends DataService {
         }
 
     }
+
+    public searchUtil(toSearch) {
+        /* Search Text in all 3 fields , toSearch = [] */
+        var final = [];
+        var cnt = 0;
+        var item = JSON.parse(localStorage.getItem('userData'));
+        item.forEach(function(v) 
+        {
+            if(v.name.toLowerCase().indexOf(toSearch.toLowerCase()) > -1 || v.email.toLowerCase().indexOf(toSearch.toLowerCase()) > -1 || v.city.toLowerCase().indexOf(toSearch.toLowerCase()) > -1) 
+            {
+                final.push(v);
+            }
+        });
+
+        this.data = final;
+    }
 }

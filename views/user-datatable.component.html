@@ -10,7 +10,12 @@
 
         <div class="panel panel-default">
             <!--<div class="panel-heading">User information</div>-->
-
+            <div class="input-group">
+                <input class="form-control" ng-model="searchText" #searchTextval placeholder="Search" type="search" (keyup)="searchUtil(searchTextval.value)" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
             <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
                 <thead>
                 <tr>
